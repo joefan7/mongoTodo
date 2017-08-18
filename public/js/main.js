@@ -17,9 +17,7 @@ $(document).ready(function(){
         $.get('/todo', function(data){
             console.log(data)
             todoList = data
-            setTimeout(function(){ // timeout set to try to remedy the render issue functions work but rendering is slow
-                render()
-            }, delayMillis)
+            render()
         })
     }
 
@@ -31,8 +29,9 @@ $(document).ready(function(){
         var btnTaskNumber = $(event.target).attr('btn-task-number')
         var btnItem = document.getElementById(btnTaskNumber)
         console.log("Button Clicked", btnTaskNumber, btnItem)
-        $.post('/todo/delete', $(this).serialize() + '_id=' + btnTaskNumber, function(data){})
-        getFreshData()
+        $.post('/todo/delete', $(this).serialize() + '_id=' + btnTaskNumber, function(data){
+            getFreshData()
+        })
     })
 
     $('body').on('click', '.task', function(event){
@@ -40,11 +39,13 @@ $(document).ready(function(){
         var dataTaskNumber = $(event.target).attr('id')
         var listItem = document.getElementById(dataTaskNumber)
         if (listItem.className.includes('lineThrough')){
-            $.post('/todo/upd-false', $(this).serialize() + '_id=' + dataTaskNumber, function(data){})
-            getFreshData()
+            $.post('/todo/upd-false', $(this).serialize() + '_id=' + dataTaskNumber, function(data){
+                getFreshData()
+            })
         } else {
-            $.post('/todo/upd-true', $(this).serialize() + '_id=' + dataTaskNumber, function(data){})
-            getFreshData()
+            $.post('/todo/upd-true', $(this).serialize() + '_id=' + dataTaskNumber, function(data){
+                getFreshData()
+            })
         }
     })
 
