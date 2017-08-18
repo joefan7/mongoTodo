@@ -4,9 +4,9 @@ $(document).ready(function(){
         $('#todoList').empty()
         for (var i = 0; i < todoList.length; i++ ) {
             if (todoList[i].complete === false) {
-                $('#todoList').append(`<li id="${todoList[i]._id}" class="task"><button btn-task-number="${todoList[i]._id}" class="taskButton">Delete</button> ${todoList[i]['todoText']}`)
+                $('#todoList').append(`<li id="${todoList[i]._id}" class="task">${todoList[i]['todoText']}</li><button btn-task-number="${todoList[i]._id}" class="taskButton">Delete</button> <hr>`)
             } else {
-                $('#todoList').append(`<li id="${todoList[i]._id}" class="task lineThrough"><button btn-task-number="${todoList[i]._id}" class="taskButton">Delete</button> ${todoList[i]['todoText']}</li>`)
+                $('#todoList').append(`<li id="${todoList[i]._id}" class="task lineThrough">${todoList[i]['todoText']}</li><button btn-task-number="${todoList[i]._id}" class="taskButton">Delete</button> <hr>`)
             }
         }
     }

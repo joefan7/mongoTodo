@@ -5,7 +5,6 @@ var mongoose    = require('mongoose')
 
 mongoose.connect('mongodb://localhost:27017/todoApp')
 
-// ObjectID = mongoose.ObjectID
 
 var todoSchema = mongoose.Schema({
     todoText: {
@@ -39,7 +38,7 @@ app.get('/todo', function(req, res, next){
 
 app.post('/todo', function(req, res, next){   
     var newTodo = new TodoModel(req.body)
-    newTodo.save(function(err){
+    newTodo.save(function(err){ 
         if (err){ next(err) }
         else {
             res.send({success:'success!'})
