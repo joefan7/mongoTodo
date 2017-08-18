@@ -4,14 +4,12 @@ $(document).ready(function(){
         $('#todoList').empty()
         for (var i = 0; i < todoList.length; i++ ) {
             if (todoList[i].complete === false) {
-                $('#todoList').append(`<li id="${todoList[i]._id}" class="task">${todoList[i]['todoText']}</li><button btn-task-number="${todoList[i]._id}" class="taskButton">Delete</button> <hr>`)
+                $('#todoList').append(`<li id="${todoList[i]._id}" class="task"><button btn-task-number="${todoList[i]._id}" class="taskButton">Delete</button>${todoList[i]['todoText']}</li>`)
             } else {
-                $('#todoList').append(`<li id="${todoList[i]._id}" class="task lineThrough">${todoList[i]['todoText']}</li><button btn-task-number="${todoList[i]._id}" class="taskButton">Delete</button> <hr>`)
+                $('#todoList').append(`<li id="${todoList[i]._id}" class="task lineThrough"><button btn-task-number="${todoList[i]._id}" class="taskButton">Delete</button>${todoList[i]['todoText']}</li>`)
             }
         }
     }
-
-    var delayMillis = 500;
     
     var getFreshData = function(){
         $.get('/todo', function(data){
@@ -25,6 +23,7 @@ $(document).ready(function(){
     getFreshData()
 
     $('body').on('click', '.taskButton', function(event){
+        event.stopPropagation()
         event.preventDefault()
         var btnTaskNumber = $(event.target).attr('btn-task-number')
         var btnItem = document.getElementById(btnTaskNumber)
