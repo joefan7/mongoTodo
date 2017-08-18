@@ -38,6 +38,7 @@ app.get('/todo', function(req, res, next){
 
 app.post('/todo', function(req, res, next){   
     var newTodo = new TodoModel(req.body)
+    console.log(req.body)
     newTodo.save(function(err){ 
         if (err){ next(err) }
         else {
@@ -55,7 +56,7 @@ app.post('/todo/upd-false', function(req, res, next){
                 if ( err ) { next(err) }
             })
         }
-        res.send({success:'success!'})
+        res.send({success:'success!'}) 
     })
 })
 
@@ -77,7 +78,6 @@ app.post('/todo/delete', function(req, res, next){
     TodoModel.find({_id: req.body}, function(err, docs){
         if(err) {next(err)}
         else {
-            docs[0]["complete"] = true
             docs[0].remove(function(err){
                 if ( err ) { next(err) }
             })
