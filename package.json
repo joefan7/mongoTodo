@@ -1,0 +1,29 @@
+{
+  "name": "mongo-todo",
+  "version": "1.0.0",
+  "description": "Mongo assignment create a full stack Todo web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joefan7/mongoTodo.git"
+  },
+  "keywords": [
+    "Mongo",
+    "Express",
+    "App"
+  ],
+  "author": "Joseph Fan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joefan7/mongoTodo/issues"
+  },
+  "homepage": "https://github.com/joefan7/mongoTodo#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.7"
+  }
+}
